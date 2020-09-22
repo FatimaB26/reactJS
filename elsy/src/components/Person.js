@@ -1,5 +1,6 @@
 import React from 'react';
 import '../App.css';
+import Icon from './core/icon';
 
 class Person extends React.Component {
   render() {
@@ -9,9 +10,9 @@ class Person extends React.Component {
     };
 
     return (
-      <div className = "box" className = "col-md-2" className = "col-6" style = {fontStyle}>
-        <span class="material-icons">directions_walk</span>
-        <p>zalam</p>
+      <div className = "box" className = "col-md-2" className = "col-6">
+        <span className="material-icons"  style = {fontStyle}>directions_walk</span>
+        <Icon name = "directions_walk" style = {fontStyle}></Icon>
       </div>
     );
   }

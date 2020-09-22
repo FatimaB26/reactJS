@@ -1,0 +1,7 @@
+.box:nth-child(odd) {
+    background: red;
+  }
+  
+.box:nth-child(even) {
+    background: blue;
+  }
