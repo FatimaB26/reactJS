@@ -4,7 +4,7 @@ class Icon extends React.Component {
 
     render () {
         return (
-            <span className={this.props.name}></span>
+            <p className = {this.props.name}></p>
         )
     }
 }
