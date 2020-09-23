@@ -10,9 +10,10 @@ class Person extends React.Component {
     };
 
     return (
-      <div className = "box" className = "col-md-2" className = "col-6">
+      <div className = "box col-md-2 col-6">
         <span className="material-icons"  style = {fontStyle}>directions_walk</span>
         <Icon name = "directions_walk" style = {fontStyle}></Icon>
+        <p>{this.props.steps} STEPS</p>
       </div>
     );
   }
