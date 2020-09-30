@@ -6,9 +6,13 @@ class Button extends React.Component {
 render () {
     return (
         <div>
-            <p>children: {this.props.children}</p>
-            <p>isSelected: {this.props.isSelected}</p>
-            <p>onClick: {this.props.onClick}</p>
+            <button type="button"
+                    className={this.props.isSelected ? "btn btn-primary active": "btn btn-primary"}
+                    onClick={this.props.onClick}>
+                        
+                    {this.props.children}
+
+            </button>
         </div>
 
     )
