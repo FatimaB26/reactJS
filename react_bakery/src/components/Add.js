@@ -31,19 +31,21 @@ updatePrice (val) {
 submitForm () {
     console.log (this.state.input)
     console.log (this.state.price)
+    addItem ()
 }
 
 
 
 render () {
     return (
-        <div>Add
+        <div>
             <input type = 'text'
             onClick={this.updateInput}>
             </input>
             <Button onClick = {this.submitForm}>Add</Button>
             <Slider onChange = {this.updatePrice}></Slider>
-            <p>{this.props.addItem} L</p>
+
+           
         </div>
 
     )

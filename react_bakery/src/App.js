@@ -40,13 +40,16 @@ class App extends Component {
     }
 
     addItem (price,input) {
-
+      console.log (price)
+      console.log (input)
     }
 
   renderAffichage() {
     switch(this.state.activeTab) {
       case 'add':
-        return <Add></Add>;
+        return <Add addItem = {this.addItem}>
+          <p>{this.props.addItem}</p>
+        </Add>;
       case 'list':
         return <List></List>;
       case 'pay':
@@ -60,13 +63,15 @@ class App extends Component {
     return (
       <div>
         <Button isSelected = {this.state.activeTab === 'add'}
-                onClick = {this.onClickTabAdd} >Add</Button>
+                onClick = {this.onClickTabAdd}>Add</Button>
         <Button isSelected={this.state.activeTab === 'list'}
                 onClick = {this.onClickTabList} >List</Button>
         <Button isSelected={this.state.activeTab === 'pay'}
                 onClick = {this.onClickTabPay}>Pay</Button>
 
+
           {this.renderAffichage()}
+          {this.submitForm()}
 
       </div>
       
