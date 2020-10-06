@@ -1,11 +1,8 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import Name from './components/Name'
-import Capital from './components/Capital'
-import Region from './components/Region'
-import Population from './components/Population'
-import Flag from './components/Flag'
+import '.'
+
 
 class App extends React.Component {
 
@@ -17,28 +14,34 @@ class App extends React.Component {
       flag: '',
       population: 0,
       region: '',
-      error: null
     };
   }
 
   componentDidMount() {
-    fetch('https://restcountries.eu/rest/v2/name/france').then((response) => { 
-      response = response.json()
-      response.then ((result) => {
-        console.log (result)
-      })
+    fetch('https://restcountries.eu/rest/v2/name/france')
+    .then((response) => { 
+      return response.json()
     })
+    .then((result) => {
+      this.setState({
+        name: json[0].name,
+        capital: json[0].capital,
+        flag: json[0].flag,
+        population: json[0].population,
+        region: json[0].region,
+      }); 
+    }).catch
     }
 
   render() {
     return (
       <div className="container-fluid">
 
-        <Name name={this.state.name} ></Name>
-        <Capital capital={this.state.capital} ></Capital>
-        <Region region={this.state.region} ></Region>
-        <Population population={this.state.population} ></Population>
-        <Flag flag={this.state.flag} ></Flag>
+        <p>{this.state.name}</p>
+        <p>{this.state.capital}</p>
+        <p>{this.state.region}</p>
+        <p>{this.state.population}</p>
+        <p>{this.state.flag}</p>
 
       </div>
     );
