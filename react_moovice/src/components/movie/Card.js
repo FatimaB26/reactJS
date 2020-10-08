@@ -1,11 +1,14 @@
 import React from 'react';
+import logo from '../movie/placeholder.png'
 
 class Card extends React.Component {
 
     render() {
         return (
             <div className="card">
-                <img className="card-img-top" src="placeholder.png"></img>
+                <img src={logo}></img>
+                <p>{this.props.info.titre}</p>
+                <p>{this.props.info.description}</p>
 
             </div>
         )

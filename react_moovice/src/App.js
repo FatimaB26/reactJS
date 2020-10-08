@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import './assets/bootstrap.min.css';
+import './assets/main.css';
 import {
   BrowserRouter as Router,
   Route,
@@ -15,6 +17,7 @@ import PopularBattle from './components/PopularBattle';
 import MyList from './components/MyList';
 
 class App extends React.Component {
+
 
   render() {
 
@@ -60,6 +63,17 @@ class App extends React.Component {
 
 
           </Switch>
+
+          <section>
+          {this.state.movies.map((elem, index) => {
+            return (
+              <div>
+                <img src={`https://image.tmdb.org/t/p/w300/${this.state.image}`}></img>
+                <span>{elem.titre}</span>
+              </div>
+            )
+          })}
+          </section>
 
           <Card info={this.state}></Card>
 
