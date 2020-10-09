@@ -7,4 +7,5 @@ class Discover extends React.Component {
     );
   }
 }
+
 export default Discover;
