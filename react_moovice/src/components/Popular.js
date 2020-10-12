@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from './movie/Card'
 import { API_KEY } from '../service/network'
+import placeholder from '../components/img/placeholder.png'
 
 class Popular extends React.Component {
 
@@ -18,16 +19,28 @@ class Popular extends React.Component {
             return {
               title: elem.title,
               description: elem.overview,
-              imgURL : `https://image.tmdb.org/t/p/w300/${elem.poster_path}`
+              imgURL : elem.poster_path ? `https://image.tmdb.org/t/p/w300/${elem.poster_path}` : placeholder
             }
       })
+      this.setState ({movies})
     })
   }
 
   render() {
-    return (
-      <div>Popular
 
+    const {
+        movies
+    } = this.state
+
+    return (
+      <div className = 'row'>
+        {movies.map ((elem, index) => {
+          
+          return ( <div className = 'col-6'>
+                    <Card key = {index} title = {elem.title} description= {elem.description} imgURL = {elem.imgURL} />
+                </div> )
+
+          })}
       </div>
       
     );

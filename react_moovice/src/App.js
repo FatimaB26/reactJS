@@ -1,15 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
+import {BrowserRouter as Router,Route,Link,Switch} from 'react-router-dom';
+
 import './assets/bootstrap.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import './assets/main.css';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Switch
-} from 'react-router-dom';
-import Card from './components/movie/Card';
+
 import Discover from './components/Discover';
 import DiscoverBattle from './components/DiscoverBattle';
 import Popular from './components/Popular';
@@ -24,7 +19,7 @@ class App extends React.Component {
 
       <Router>
 
-        <div>
+        <div className = 'container'>
           <nav>
 
             <ul>
@@ -40,11 +35,11 @@ class App extends React.Component {
 
           <Switch>
 
-          <Route exact path="/my-list/" component={MyList}></Route>
-          <Route exact path="/popular-battle/" component={PopularBattle}></Route>
-          <Route exact path="/popular/" component={Popular}></Route>
-          <Route exact path="/battle/" component={DiscoverBattle}></Route>
-          <Route exact path="/" component={Discover}></Route>
+          <Route exact path="/my-list/"><MyList /> </Route>
+          <Route exact path="/popular-battle/"><PopularBattle /> </Route>
+          <Route exact path="/popular/"><Popular /> </Route>
+          <Route exact path="/battle/"><DiscoverBattle /> </Route>
+          <Route exact path="/"><Discover /> </Route>
 
           </Switch>
 
