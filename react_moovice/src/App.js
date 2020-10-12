@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import './assets/bootstrap.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import './assets/bootstrap.min.css';
 import './assets/main.css';
 import {
   BrowserRouter as Router,
@@ -37,44 +37,16 @@ class App extends React.Component {
 
           </nav>
 
+
           <Switch>
 
-
-          <Route path="/my-list/">
-              <MyList />
-            </Route>
-
-            <Route path="/popular-battle/">
-              <PopularBattle />
-            </Route>
-
-            <Route path="/popular/">
-              <Popular />
-            </Route>
-
-            <Route path="/battle/">
-              <DiscoverBattle />
-            </Route>
-
-            <Route path="/">
-              <Discover />
-            </Route>
-
+          <Route exact path="/my-list/" component={MyList}></Route>
+          <Route exact path="/popular-battle/" component={PopularBattle}></Route>
+          <Route exact path="/popular/" component={Popular}></Route>
+          <Route exact path="/battle/" component={DiscoverBattle}></Route>
+          <Route exact path="/" component={Discover}></Route>
 
           </Switch>
-
-          <section>
-          {this.state.movies.map((elem, index) => {
-            return (
-              <div>
-                <img src={`https://image.tmdb.org/t/p/w300/${this.state.image}`}></img>
-                <span>{elem.titre}</span>
-              </div>
-            )
-          })}
-          </section>
-
-          <Card info={this.state}></Card>
 
         </div>
       </Router>
