@@ -25,6 +25,7 @@ class PopularBattle extends React.Component {
       .then (json => {
         const movies = json.results.map((elem) => {
               return {
+                id : elem.id,
                 title: elem.title,
                 description: elem.overview,
                 imgURL : elem.poster_path ? `https://image.tmdb.org/t/p/w300/${elem.poster_path}` : placeholder
@@ -35,6 +36,15 @@ class PopularBattle extends React.Component {
     }
 
     choseFilm (ID) {
+
+      let myList = localStorage.getItem('my-list')
+
+      myList.push (id)
+      localStorage.setItem('my-list' , myList)
+
+      this.setState ({
+        currentPage : this.state.currentPage + 1
+      })
 
     }
   
@@ -55,13 +65,13 @@ class PopularBattle extends React.Component {
         <div className = 'row'>
 
           <div className = 'col-6'>
-            <button onClick={this.choseFilm}>
+          <button onClick={() => this.choseFilm(firstMovie.id)}>
               <Card {... firstMovie} />
             </button>
           </div>
 
           <div className = 'col-6'>
-          <button onClick={this.choseFilm}>
+          <button onClick={() => this.choseFilm(secondMovie.id)}>
               <Card {... secondMovie} />
             </button>
           </div>
