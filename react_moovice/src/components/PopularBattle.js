@@ -35,12 +35,16 @@ class PopularBattle extends React.Component {
       })
     }
 
-    choseFilm (ID) {
+    choseFilm (id) {
 
-      let myList = localStorage.getItem('my-list')
+      let myList = []
 
+      myList = JSON.parse(localStorage.getItem('my-list')) || []
+
+      if (!myList.includes(id)) {
       myList.push (id)
-      localStorage.setItem('my-list' , myList)
+      localStorage.setItem('my-list' , JSON.stringify(myList))
+      }
 
       this.setState ({
         currentPage : this.state.currentPage + 1
